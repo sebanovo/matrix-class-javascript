@@ -4,10 +4,10 @@
 
 Este proyecto representa un trabajo académico de la universidad en el que desarrollamos una clase Matriz en JavaScript. Esta clase permite realizar cálculos matemáticos utilizando una Matriz como base y está diseñada para llevar a cabo una variedad de operaciones matemáticas.
 
-Visita el proyecto [Clase Matriz](https://clase-vector-vanilla-javascript.vercel.app/)
+Visita el proyecto [Clase Matriz](https://clase-matriz-vanilla-javascript.vercel.app/)
 
 <div align="center">
-  <a href="https://clase-vector-vanilla-javascript.vercel.app/"><img src="https://i.ibb.co/47MLGMV/clase-matriz-vanilla-javascript.png" alt="clase-matriz-vanilla-javascript" border="0"></a>
+  <a href="https://clase-matriz-vanilla-javascript.vercel.app/"><img src="https://i.ibb.co/47MLGMV/clase-matriz-vanilla-javascript.png" alt="clase-matriz-vanilla-javascript" border="0"></a>
 </div>
 
 ## Metodos de la Clase Matriz
