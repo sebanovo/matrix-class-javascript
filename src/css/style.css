@@ -73,7 +73,11 @@ body {
 }
 
 .input-data {
-  width: 100px;
+  width: 90px;
+  height: 25px;
+  text-align: end;
+  padding: 5px;
+  font-size: large;
   outline: none;
   border: 1px solid #353434;
   border-radius: 2px;

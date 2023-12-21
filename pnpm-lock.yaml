@@ -6,12 +6,12 @@ settings:
 
 dependencies:
   library-utilities:
-    specifier: ^1.0.3
-    version: 1.0.3
+    specifier: ^1.0.4
+    version: 1.0.4
 
 devDependencies:
   vite:
-    specifier: ^5.0.8
+    specifier: ^5.0.10
     version: 5.0.10
 
 packages:
@@ -366,8 +366,8 @@ packages:
     dev: true
     optional: true
 
-  /library-utilities@1.0.3:
-    resolution: {integrity: sha512-kDrPSOgunfz1YrCD+quXS8iqWUFrGgYNEiGfb/Ba8lhmksKE8yU79BKxbXV4tB/foJwBpzdvRVNpqDbNe2ZfzQ==}
+  /library-utilities@1.0.4:
+    resolution: {integrity: sha512-b/MR1lB4Ty8F/2YHKffCoX/Cv1d6PilLE5+RPoB+hte1AlWt3viBDY2U6O4jjSCpRCKkcbYi2Hjv2selIkpAsA==}
     dev: false
 
   /nanoid@3.3.7:

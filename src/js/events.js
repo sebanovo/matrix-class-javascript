@@ -28,23 +28,23 @@ botones.Descargar1.addEventListener('click', () => {
 })
 
 botones.CargarSerieArit.addEventListener('click', () => {
-  const nroFila = parseInt('Filas')
-  const nroCol = parseInt('Columnas')
-  const a1 = parseInt('Numero de inicio')
-  const r = parseInt('Razón')
+  const nroFila = parseInt(prompt("Filas"))
+  const nroCol = parseInt(prompt("Columnas"))
+  const a1 = parseInt(prompt("Numero inicial"))
+  const r = parseInt(prompt("La Razón"))
   m1.cargarSerieAritmetica(nroFila, nroCol, a1, r)
 })
 
 botones.CargarSerieGeo.addEventListener('click', () => {
-  const nroFila = parseInt('Filas')
-  const nroCol = parseInt('Columnas')
-  const a1 = parseInt('Numero de inicio')
-  const r = parseInt('Razón geometrica')
+  const nroFila = parseInt(prompt("Filas"))
+  const nroCol = parseInt(prompt("Columnas"))
+  const a1 = parseInt(prompt("Numero inicial"))
+  const r = parseInt(prompt("La Razón Geometrica"))
   m1.cargarSerieGeometrica(nroFila, nroCol, a1, r)
 })
 
 botones.Pertenencia.addEventListener('click', () => {
-  const numero = parseInt('Numero')
+  const numero = parseInt(prompt("Numero"))
   alert(m1.pertenencia(numero))
 })
 
@@ -61,7 +61,7 @@ botones.VerificarDiferentes.addEventListener('click', () => {
 })
 
 botones.MultiplicarEscalar.addEventListener('click', () => {
-  const escalar = parseInt('Escalar')
+  const escalar = parseInt(prompt("Escalar"))
   m1.multiplicacionPorEscalar(escalar)
   textBox2.value = m1.descargar()
 })
@@ -72,8 +72,9 @@ botones.Transpocicion.addEventListener('click', () => {
 })
 
 botones.Frecuencia.addEventListener('click', () => {
-  const numero = parseInt('Numero a buscar')
-  alert(m1.frecuencia(numero))
+  const numero = parseInt(prompt('Numero a buscar'))
+  const frecuencia = m1.frecuencia(numero)
+  alert(frecuencia)
 })
 
 botones.Ordenar.addEventListener('click', () => {
@@ -196,41 +197,49 @@ botones.OrdenarDiagSecundaria.addEventListener('click', () => {
 botones.SegTrianSupIzq.addEventListener('click', () => {
   n1 = new Integer()
   m1.segmentarTriangularSuperiorIzquierda(n1.verificarPar)
+  textBox2.value = m1.descargar()
 })
 
 botones.SegTrianSupDer.addEventListener('click', () => {
   n1 = new Integer()
   m1.segmentarTriangularSuperiorDerecha(n1.verificarPrimo)
+  textBox2.value = m1.descargar()
 })
 
 botones.SegTrianInfIzq.addEventListener('click', () => {
   n1 = new Integer()
   m1.segmentarTriangularSuperiorIzquierda(n1.verificarCapicua)
+  textBox2.value = m1.descargar()
 })
 
 botones.SegTrianInfDer.addEventListener('click', () => {
   n1 = new Integer()
   m1.segmentarTriangularSuperiorIzquierda(n1.verificarFibonacci)
+  textBox2.value = m1.descargar()
 })
 
 botones.IntTrianSupIzq.addEventListener('click', () => {
   n1 = new Integer()
   m1.IntercalarTriangularSuperiorIzquierda(n1.verificarPar)
+  textBox2.value = m1.descargar()
 })
 
 botones.IntTrianSupDer.addEventListener('click', () => {
   n1 = new Integer()
   m1.IntercalarTriangularSuperiorDerecha(n1.verificarPrimo)
+  textBox2.value = m1.descargar()
 })
 
 botones.IntTrianInfIzq.addEventListener('click', () => {
   n1 = new Integer()
   m1.IntercalarTriangularInferiorIzquierda(n1.verificarCapicua)
+  textBox2.value = m1.descargar()
 })
 
 botones.IntTrianInfDer.addEventListener('click', () => {
   n1 = new Integer()
   m1.IntercalarTriangularInferiorDerecha(n1.verificarFibonacci)
+  textBox2.value = m1.descargar()
 })
 
 // matriz 2
@@ -253,18 +262,18 @@ botones.Descargar2.addEventListener('click', () => {
 })
 
 botones.CargarSerieArit2.addEventListener('click', () => {
-  const nroFila = parseInt('Filas')
-  const nroCol = parseInt('Columnas')
-  const a1 = parseInt('Numero de inicio')
-  const r = parseInt('Razón')
+  const nroFila = parseInt(prompt("Filas"))
+  const nroCol = parseInt(prompt("Columnas"))
+  const a1 = parseInt(prompt("Numero inicial"))
+  const r = parseInt(prompt("La Razón"))
   m2.cargarSerieAritmetica(nroFila, nroCol, a1, r)
 })
 
 botones.CargarSerieGeo2.addEventListener('click', () => {
-  const nroFila = parseInt('Filas')
-  const nroCol = parseInt('Columnas')
-  const a1 = parseInt('Numero de inicio')
-  const r = parseInt('Razón geometrica')
+  const nroFila = parseInt(prompt("Filas"))
+  const nroCol = parseInt(prompt("Columnas"))
+  const a1 = parseInt(prompt("Numero inicial"))
+  const r = parseInt(prompt("La Razón Geometrica"))
   m2.cargarSerieGeometrica(nroFila, nroCol, a1, r)
 })
 
