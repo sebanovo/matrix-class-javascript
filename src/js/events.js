@@ -11,6 +11,8 @@ let m3 = new Matriz()
 let n1 = new Integer()
 
 botones.Cargar1.addEventListener('click', () => {
+  m1 = new Matriz()
+
   const nroFilas = botones.inputNroFilas.value
   const nroColumnas = botones.inputNroColumnas.value
   const inicio = botones.inputInicial.value
@@ -21,7 +23,7 @@ botones.Cargar1.addEventListener('click', () => {
     parseInt(nroColumnas),
     parseInt(inicio),
     parseInt(final)
-  ) 
+  )
 })
 
 botones.Descargar1.addEventListener('click', () => {
@@ -29,6 +31,8 @@ botones.Descargar1.addEventListener('click', () => {
 })
 
 botones.CargarSerieArit.addEventListener('click', async () => {
+  m1 = new Matriz()
+
   const result1 = await promptSwal('Filas')
   if (!result1.isConfirmed) return
   const result2 = await promptSwal('Columnas')
@@ -47,6 +51,8 @@ botones.CargarSerieArit.addEventListener('click', async () => {
 })
 
 botones.CargarSerieGeo.addEventListener('click', async () => {
+  m1 = new Matriz()
+
   const result1 = await promptSwal('Filas')
   if (!result1.isConfirmed) return
   const result2 = await promptSwal('Columnas')
@@ -69,19 +75,19 @@ botones.Pertenencia.addEventListener('click', async () => {
   if (!result.isConfirmed) return
   const numero = Number(result.value)
 
-  messageSwal(m1.pertenencia(numero))
+  messageSwal(`${m1.pertenencia(numero)}`)
 })
 
 botones.VerificarOrdenado.addEventListener('click', () => {
-  messageSwal(m1.verificarOrdenado() ? 'true' : 'false')
+  messageSwal(`${m1.verificarOrdenado()}`)
 })
 
 botones.VerificarIguales.addEventListener('click', () => {
-  messageSwal(m1.verificarTodosIguales() ? 'true' : 'false')
+  messageSwal(`${m1.verificarTodosIguales()}`)
 })
 
 botones.VerificarDiferentes.addEventListener('click', () => {
-  messageSwal(m1.verificarTodosDiferentes() ? 'true' : 'false')
+  messageSwal(`${m1.verificarTodosDiferentes()}`)
 })
 
 botones.MultiplicarEscalar.addEventListener('click', async () => {
@@ -101,8 +107,7 @@ botones.Frecuencia.addEventListener('click', async () => {
   const result = await promptSwal('Numero')
   if (!result.isConfirmed) return
   const numero = Number(result.value)
-  const frecuencia = m1.frecuencia(numero)
-  messageSwal(frecuencia)
+  messageSwal(`${m1.frecuencia(numero)}`)
 })
 
 botones.Ordenar.addEventListener('click', () => {
