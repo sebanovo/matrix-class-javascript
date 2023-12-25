@@ -11,12 +11,12 @@ let m3 = new Matriz()
 let n1 = new Integer()
 
 botones.Cargar1.addEventListener('click', () => {
-  m1 = new Matriz()
-
   const nroFilas = botones.inputNroFilas.value
   const nroColumnas = botones.inputNroColumnas.value
   const inicio = botones.inputInicial.value
   const final = botones.inputFinal.value
+
+  m1 = new Matriz()
 
   m1.cargar(
     parseInt(nroFilas),
@@ -24,6 +24,12 @@ botones.Cargar1.addEventListener('click', () => {
     parseInt(inicio),
     parseInt(final)
   )
+
+  check({
+    title: 'cargado',
+    text: 'la matriz se ha cargado con exito!!!',
+    icon: 'success'
+  })
 })
 
 botones.Descargar1.addEventListener('click', () => {
@@ -31,8 +37,6 @@ botones.Descargar1.addEventListener('click', () => {
 })
 
 botones.CargarSerieArit.addEventListener('click', async () => {
-  m1 = new Matriz()
-
   const result1 = await promptSwal('Filas')
   if (!result1.isConfirmed) return
   const result2 = await promptSwal('Columnas')
@@ -47,12 +51,18 @@ botones.CargarSerieArit.addEventListener('click', async () => {
   const a1 = Number(result3.value)
   const r = Number(result4.value)
 
+  m1 = new Matriz()
+
   m1.cargarSerieAritmetica(nroFila, nroColumna, a1, r)
+
+  check({
+    title: 'Cargado',
+    text: 'La matriz se ha cargado con exito!!!',
+    icon: 'success'
+  })
 })
 
 botones.CargarSerieGeo.addEventListener('click', async () => {
-  m1 = new Matriz()
-
   const result1 = await promptSwal('Filas')
   if (!result1.isConfirmed) return
   const result2 = await promptSwal('Columnas')
@@ -67,7 +77,15 @@ botones.CargarSerieGeo.addEventListener('click', async () => {
   const a1 = Number(result3.value)
   const r = Number(result4.value)
 
+  m1 = new Matriz()
+
   m1.cargarSerieGeometrica(nroFila, nroColumna, a1, r)
+
+  check({
+    title: 'Cargado',
+    text: 'La matriz se ha cargado con exito!!!',
+    icon: 'success'
+  })
 })
 
 botones.Pertenencia.addEventListener('click', async () => {
@@ -282,12 +300,19 @@ botones.Cargar2.addEventListener('click', () => {
   const inicio = botones.inputInicial.value
   const final = botones.inputFinal.value
 
+  m2 = new Matriz()
+
   m2.cargar(
     parseInt(nroFilas),
     parseInt(nroColumnas),
     parseInt(inicio),
     parseInt(final)
   )
+  check({
+    title: 'Cargado',
+    text: 'La matriz se ha cargado con exito!!!',
+    icon: 'success'
+  })
 })
 
 botones.Descargar2.addEventListener('click', () => {
@@ -309,7 +334,14 @@ botones.CargarSerieArit2.addEventListener('click', async () => {
   const a1 = Number(result3.value)
   const r = Number(result4.value)
 
+  m2 = new Matriz()
+
   m2.cargarSerieAritmetica(nroFila, nroColumna, a1, r)
+  check({
+    title: 'Cargado',
+    text: 'La matriz se ha cargado con exito!!!',
+    icon: 'success'
+  })
 })
 
 botones.CargarSerieGeo2.addEventListener('click', async () => {
@@ -327,7 +359,14 @@ botones.CargarSerieGeo2.addEventListener('click', async () => {
   const a1 = Number(result3.value)
   const r = Number(result4.value)
 
+  m2 = new Matriz()
+
   m2.cargarSerieGeometrica(nroFila, nroColumna, a1, r)
+  check({
+    title: 'Cargado',
+    text: 'La matriz se ha cargado con exito!!!',
+    icon: 'success'
+  })
 })
 
 // matriz 3
@@ -337,12 +376,19 @@ botones.Cargar3.addEventListener('click', () => {
   const inicio = botones.inputInicial.value
   const final = botones.inputFinal.value
 
+  m3 = new Matriz()
+
   m3.cargar(
     parseInt(nroFilas),
     parseInt(nroColumnas),
     parseInt(inicio),
     parseInt(final)
   )
+  check({
+    title: 'Cargado',
+    text: 'La matriz se ha cargado con exito!!!',
+    icon: 'success'
+  })
 })
 
 botones.Descargar3.addEventListener('click', () => {
