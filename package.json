@@ -12,6 +12,7 @@
     "vite": "^5.0.10"
   },
   "dependencies": {
-    "library-utilities": "^1.0.4"
+    "sweetalert2": "^11.10.1",
+    "utilities-library": "^1.0.4"
   }
 }

@@ -1,5 +1,6 @@
+import { Matriz, Integer } from 'utilities-library'
+import { messageSwal, promptSwal, confirDelete, check } from './alertSwal.js'
 import botones from './components.js'
-import { Matriz, Integer } from 'library-utilities'
 
 const { textBox1, textBox2, textBox3 } = botones
 
@@ -20,48 +21,73 @@ botones.Cargar1.addEventListener('click', () => {
     parseInt(nroColumnas),
     parseInt(inicio),
     parseInt(final)
-  ) //
+  ) 
 })
 
 botones.Descargar1.addEventListener('click', () => {
   textBox1.value = m1.descargar()
 })
 
-botones.CargarSerieArit.addEventListener('click', () => {
-  const nroFila = parseInt(prompt("Filas"))
-  const nroCol = parseInt(prompt("Columnas"))
-  const a1 = parseInt(prompt("Numero inicial"))
-  const r = parseInt(prompt("La Razón"))
-  m1.cargarSerieAritmetica(nroFila, nroCol, a1, r)
+botones.CargarSerieArit.addEventListener('click', async () => {
+  const result1 = await promptSwal('Filas')
+  if (!result1.isConfirmed) return
+  const result2 = await promptSwal('Columnas')
+  if (!result2.isConfirmed) return
+  const result3 = await promptSwal('Valor inicial')
+  if (!result3.isConfirmed) return
+  const result4 = await promptSwal('La razón')
+  if (!result4.isConfirmed) return
+
+  const nroFila = Number(result1.value)
+  const nroColumna = Number(result2.value)
+  const a1 = Number(result3.value)
+  const r = Number(result4.value)
+
+  m1.cargarSerieAritmetica(nroFila, nroColumna, a1, r)
 })
 
-botones.CargarSerieGeo.addEventListener('click', () => {
-  const nroFila = parseInt(prompt("Filas"))
-  const nroCol = parseInt(prompt("Columnas"))
-  const a1 = parseInt(prompt("Numero inicial"))
-  const r = parseInt(prompt("La Razón Geometrica"))
-  m1.cargarSerieGeometrica(nroFila, nroCol, a1, r)
+botones.CargarSerieGeo.addEventListener('click', async () => {
+  const result1 = await promptSwal('Filas')
+  if (!result1.isConfirmed) return
+  const result2 = await promptSwal('Columnas')
+  if (!result2.isConfirmed) return
+  const result3 = await promptSwal('Valor inicial')
+  if (!result3.isConfirmed) return
+  const result4 = await promptSwal('La razón geometrica')
+  if (!result4.isConfirmed) return
+
+  const nroFila = Number(result1.value)
+  const nroColumna = Number(result2.value)
+  const a1 = Number(result3.value)
+  const r = Number(result4.value)
+
+  m1.cargarSerieGeometrica(nroFila, nroColumna, a1, r)
 })
 
-botones.Pertenencia.addEventListener('click', () => {
-  const numero = parseInt(prompt("Numero"))
-  alert(m1.pertenencia(numero))
+botones.Pertenencia.addEventListener('click', async () => {
+  const result = await promptSwal('Numero')
+  if (!result.isConfirmed) return
+  const numero = Number(result.value)
+
+  messageSwal(m1.pertenencia(numero))
 })
 
 botones.VerificarOrdenado.addEventListener('click', () => {
-  alert(m1.verificarOrdenado())
+  messageSwal(m1.verificarOrdenado() ? 'true' : 'false')
 })
 
 botones.VerificarIguales.addEventListener('click', () => {
-  alert(m1.verificarTodosIguales())
+  messageSwal(m1.verificarTodosIguales() ? 'true' : 'false')
 })
 
 botones.VerificarDiferentes.addEventListener('click', () => {
-  alert(m1.verificarTodosDiferentes())
+  messageSwal(m1.verificarTodosDiferentes() ? 'true' : 'false')
 })
 
-botones.MultiplicarEscalar.addEventListener('click', () => {
-  const escalar = parseInt(prompt("Escalar"))
+botones.MultiplicarEscalar.addEventListener('click', async () => {
+  const result = await promptSwal('Escalar')
+  if (!result.isConfirmed) return
+  const escalar = Number(result.value)
   m1.multiplicacionPorEscalar(escalar)
   textBox2.value = m1.descargar()
 })
@@ -71,10 +97,12 @@ botones.Transpocicion.addEventListener('click', () => {
   textBox2.value = m1.descargar()
 })
 
-botones.Frecuencia.addEventListener('click', () => {
-  const numero = parseInt(prompt('Numero a buscar'))
+botones.Frecuencia.addEventListener('click', async () => {
+  const result = await promptSwal('Numero')
+  if (!result.isConfirmed) return
+  const numero = Number(result.value)
   const frecuencia = m1.frecuencia(numero)
-  alert(frecuencia)
+  messageSwal(frecuencia)
 })
 
 botones.Ordenar.addEventListener('click', () => {
@@ -220,25 +248,25 @@ botones.SegTrianInfDer.addEventListener('click', () => {
 
 botones.IntTrianSupIzq.addEventListener('click', () => {
   n1 = new Integer()
-  m1.IntercalarTriangularSuperiorIzquierda(n1.verificarPar)
+  m1.intercalarTriangularSuperiorIzquierda(n1.verificarPar)
   textBox2.value = m1.descargar()
 })
 
 botones.IntTrianSupDer.addEventListener('click', () => {
   n1 = new Integer()
-  m1.IntercalarTriangularSuperiorDerecha(n1.verificarPrimo)
+  m1.intercalarTriangularSuperiorDerecha(n1.verificarPrimo)
   textBox2.value = m1.descargar()
 })
 
 botones.IntTrianInfIzq.addEventListener('click', () => {
   n1 = new Integer()
-  m1.IntercalarTriangularInferiorIzquierda(n1.verificarCapicua)
+  m1.intercalarTriangularInferiorIzquierda(n1.verificarCapicua)
   textBox2.value = m1.descargar()
 })
 
 botones.IntTrianInfDer.addEventListener('click', () => {
   n1 = new Integer()
-  m1.IntercalarTriangularInferiorDerecha(n1.verificarFibonacci)
+  m1.intercalarTriangularInferiorDerecha(n1.verificarFibonacci)
   textBox2.value = m1.descargar()
 })
 
@@ -261,20 +289,40 @@ botones.Descargar2.addEventListener('click', () => {
   textBox2.value = m2.descargar()
 })
 
-botones.CargarSerieArit2.addEventListener('click', () => {
-  const nroFila = parseInt(prompt("Filas"))
-  const nroCol = parseInt(prompt("Columnas"))
-  const a1 = parseInt(prompt("Numero inicial"))
-  const r = parseInt(prompt("La Razón"))
-  m2.cargarSerieAritmetica(nroFila, nroCol, a1, r)
+botones.CargarSerieArit2.addEventListener('click', async () => {
+  const result1 = await promptSwal('Filas')
+  if (!result1.isConfirmed) return
+  const result2 = await promptSwal('Columnas')
+  if (!result2.isConfirmed) return
+  const result3 = await promptSwal('Valor inicial')
+  if (!result3.isConfirmed) return
+  const result4 = await promptSwal('La razón')
+  if (!result4.isConfirmed) return
+
+  const nroFila = Number(result1.value)
+  const nroColumna = Number(result2.value)
+  const a1 = Number(result3.value)
+  const r = Number(result4.value)
+
+  m2.cargarSerieAritmetica(nroFila, nroColumna, a1, r)
 })
 
-botones.CargarSerieGeo2.addEventListener('click', () => {
-  const nroFila = parseInt(prompt("Filas"))
-  const nroCol = parseInt(prompt("Columnas"))
-  const a1 = parseInt(prompt("Numero inicial"))
-  const r = parseInt(prompt("La Razón Geometrica"))
-  m2.cargarSerieGeometrica(nroFila, nroCol, a1, r)
+botones.CargarSerieGeo2.addEventListener('click', async () => {
+  const result1 = await promptSwal('Filas')
+  if (!result1.isConfirmed) return
+  const result2 = await promptSwal('Columnas')
+  if (!result2.isConfirmed) return
+  const result3 = await promptSwal('Valor inicial')
+  if (!result3.isConfirmed) return
+  const result4 = await promptSwal('La razón')
+  if (!result4.isConfirmed) return
+
+  const nroFila = Number(result1.value)
+  const nroColumna = Number(result2.value)
+  const a1 = Number(result3.value)
+  const r = Number(result4.value)
+
+  m2.cargarSerieGeometrica(nroFila, nroColumna, a1, r)
 })
 
 // matriz 3
@@ -311,19 +359,23 @@ botones.Multiplicacion.addEventListener('click', () => {
   textBox3.value = m3.descargar()
 })
 
-botones.botonReset.addEventListener('click', () => {
-  m1 = new Matriz()
-  m2 = new Matriz()
-  m3 = new Matriz()
-  
-  n1 = new Integer()
+botones.botonReset.addEventListener('click', async () => {
+  const result = await confirDelete()
+  if (result.isConfirmed) {
+    m1 = new Matriz()
+    m2 = new Matriz()
+    m3 = new Matriz()
 
-  textBox1.value = ''
-  textBox2.value = ''
-  textBox3.value = ''
+    n1 = new Integer()
 
-  botones.inputNroFilas.value = ""
-  botones.inputNroColumnas.value = ""
-  botones.inputInicial.value = ""
-  botones.inputFinal.value = ""
+    textBox1.value = ''
+    textBox2.value = ''
+    textBox3.value = ''
+
+    check({
+      title: 'Reiniciado',
+      text: 'Se han reiniciado los objetos y los textbox',
+      icon: 'success'
+    })
+  }
 })
