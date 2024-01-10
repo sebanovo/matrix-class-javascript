@@ -57,7 +57,7 @@ const botones = {
   Suma: $('#Suma'),
   Resta: $('#Resta'),
   Multiplicacion: $('#Multiplicacion'),
-   
+
   // textarea
   inputNroFilas: $('#NroFilas'),
   inputNroColumnas: $('#NroColumnas'),
@@ -70,4 +70,4 @@ const botones = {
 
   botonReset: $('#fast-reset')
 }
-export default botones;
+export default botones
