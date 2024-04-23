@@ -1,4 +1,4 @@
-import { Matriz, Integer } from 'utilities-library'
+import { Matriz } from 'utilities-library'
 import { messageSwal, promptSwal, confirDelete, check } from './alertSwal.js'
 import botones from './components.js'
 
@@ -7,8 +7,6 @@ const { textBox1, textBox2, textBox3 } = botones
 let m1 = new Matriz()
 let m2 = new Matriz()
 let m3 = new Matriz()
-
-let n1 = new Integer()
 
 botones.Cargar1.addEventListener('click', () => {
   const nroFilas = botones.inputNroFilas.value
@@ -134,14 +132,12 @@ botones.Ordenar.addEventListener('click', () => {
 })
 
 botones.Segmentar.addEventListener('click', () => {
-  n1 = new Integer()
-  m1.segmentar(n1.verificarPar)
+  m1.segmentar('esPar')
   textBox2.value = m1.descargar()
 })
 
 botones.Intercalar.addEventListener('click', () => {
-  n1 = new Integer()
-  m1.intercalar(n1.verificarPrimo)
+  m1.intercalar('esPrimo')
   textBox2.value = m1.descargar()
 })
 
@@ -246,50 +242,42 @@ botones.OrdenarDiagSecundaria.addEventListener('click', () => {
 })
 
 botones.SegTrianSupIzq.addEventListener('click', () => {
-  n1 = new Integer()
-  m1.segmentarTriangularSuperiorIzquierda(n1.verificarPar)
+  m1.segmentarTriangularSuperiorIzquierda('esPar')
   textBox2.value = m1.descargar()
 })
 
 botones.SegTrianSupDer.addEventListener('click', () => {
-  n1 = new Integer()
-  m1.segmentarTriangularSuperiorDerecha(n1.verificarPrimo)
+  m1.segmentarTriangularSuperiorDerecha('esPrimo')
   textBox2.value = m1.descargar()
 })
 
 botones.SegTrianInfIzq.addEventListener('click', () => {
-  n1 = new Integer()
-  m1.segmentarTriangularSuperiorIzquierda(n1.verificarCapicua)
+  m1.segmentarTriangularSuperiorIzquierda('esCapicua')
   textBox2.value = m1.descargar()
 })
 
 botones.SegTrianInfDer.addEventListener('click', () => {
-  n1 = new Integer()
-  m1.segmentarTriangularSuperiorIzquierda(n1.verificarFibonacci)
+  m1.segmentarTriangularSuperiorIzquierda('esFibonacci')
   textBox2.value = m1.descargar()
 })
 
 botones.IntTrianSupIzq.addEventListener('click', () => {
-  n1 = new Integer()
-  m1.intercalarTriangularSuperiorIzquierda(n1.verificarPar)
+  m1.intercalarTriangularSuperiorIzquierda('esPar')
   textBox2.value = m1.descargar()
 })
 
 botones.IntTrianSupDer.addEventListener('click', () => {
-  n1 = new Integer()
-  m1.intercalarTriangularSuperiorDerecha(n1.verificarPrimo)
+  m1.intercalarTriangularSuperiorDerecha('esPrimo')
   textBox2.value = m1.descargar()
 })
 
 botones.IntTrianInfIzq.addEventListener('click', () => {
-  n1 = new Integer()
-  m1.intercalarTriangularInferiorIzquierda(n1.verificarCapicua)
+  m1.intercalarTriangularInferiorIzquierda('esPrimo')
   textBox2.value = m1.descargar()
 })
 
 botones.IntTrianInfDer.addEventListener('click', () => {
-  n1 = new Integer()
-  m1.intercalarTriangularInferiorDerecha(n1.verificarFibonacci)
+  m1.intercalarTriangularInferiorDerecha('esFibonacci')
   textBox2.value = m1.descargar()
 })
 
@@ -416,8 +404,6 @@ botones.botonReset.addEventListener('click', async () => {
     m1 = new Matriz()
     m2 = new Matriz()
     m3 = new Matriz()
-
-    n1 = new Integer()
 
     textBox1.value = ''
     textBox2.value = ''
