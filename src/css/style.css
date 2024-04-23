@@ -161,3 +161,26 @@ section {
 textarea {
   padding: 10px;
 }
+
+.buttons-container {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content : center;
+  align-items: center;
+  gap: 40px
+}
+
+#grabar-button, #leer-button {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border: 2px solid #fff ;
+  border-radius: 10px;
+}
+
+
+#grabar-button:hover, #leer-button:hover {
+  background-color: #353434;
+}

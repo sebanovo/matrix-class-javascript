@@ -1,6 +1,6 @@
 import { Matriz } from 'utilities-library'
 import { messageSwal, promptSwal, confirDelete, check } from './alertSwal.js'
-import botones from './components.js'
+import botones, { grabarButton, leerButton } from './components.js'
 
 const { textBox1, textBox2, textBox3 } = botones
 
@@ -16,12 +16,7 @@ botones.Cargar1.addEventListener('click', () => {
 
   m1 = new Matriz()
 
-  m1.cargar(
-    parseInt(nroFilas),
-    parseInt(nroColumnas),
-    parseInt(inicio),
-    parseInt(final)
-  )
+  m1.cargar(parseInt(nroFilas), parseInt(nroColumnas), parseInt(inicio), parseInt(final))
 
   check({
     title: 'cargado',
@@ -290,12 +285,7 @@ botones.Cargar2.addEventListener('click', () => {
 
   m2 = new Matriz()
 
-  m2.cargar(
-    parseInt(nroFilas),
-    parseInt(nroColumnas),
-    parseInt(inicio),
-    parseInt(final)
-  )
+  m2.cargar(parseInt(nroFilas), parseInt(nroColumnas), parseInt(inicio), parseInt(final))
   check({
     title: 'Cargado',
     text: 'La matriz se ha cargado con exito!!!',
@@ -366,12 +356,7 @@ botones.Cargar3.addEventListener('click', () => {
 
   m3 = new Matriz()
 
-  m3.cargar(
-    parseInt(nroFilas),
-    parseInt(nroColumnas),
-    parseInt(inicio),
-    parseInt(final)
-  )
+  m3.cargar(parseInt(nroFilas), parseInt(nroColumnas), parseInt(inicio), parseInt(final))
   check({
     title: 'Cargado',
     text: 'La matriz se ha cargado con exito!!!',
@@ -415,4 +400,44 @@ botones.botonReset.addEventListener('click', async () => {
       icon: 'success'
     })
   }
+})
+
+grabarButton.addEventListener('click', () => {
+  // const contenido = m1.matriz.map(fila => fila.join('\t').join('\n'))
+  const blob = new Blob([m1.descargar()], { type: 'text/plain' })
+  const ancle = document.createElement('a')
+  ancle.download = 'matriz'
+  ancle.href = URL.createObjectURL(blob)
+
+  document.body.appendChild(ancle)
+  ancle.click()
+  URL.revokeObjectURL(ancle.href)
+  document.body.removeChild(ancle)
+})
+
+leerButton.addEventListener('click', () => {
+  const input = document.createElement('input')
+  const reader = new FileReader()
+  input.type = 'file'
+  input.accept = '.txt'
+
+  reader.onload = e => {
+    const numeros = e.target.result
+      .trim()
+      .split('\n')
+      .map(linea =>
+        linea
+          .trim()
+          .split('\t')
+          .map(numero => +numero.trim())
+      )
+    m1.matriz = numeros
+    m1.rowLength = numeros.length
+    m1.columnLength = numeros[0].length
+  }
+
+  input.onchange = e => {
+    reader.readAsText(e.target.files[0])
+  }
+  input.click()
 })

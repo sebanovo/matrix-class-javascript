@@ -71,3 +71,6 @@ const botones = {
   botonReset: $('#fast-reset')
 }
 export default botones
+
+export const grabarButton = $('#grabar-button')
+export const leerButton = $('#leer-button')
