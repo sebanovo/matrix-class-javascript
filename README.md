@@ -66,8 +66,8 @@ m1.ordenar()
 
 // Segmentar: 
 n1 = new Integer()
-m1.segmentar(n1.verificarPar) //<-- funcion integer 
+m1.segmentar("esPar") //<-- funcion integer 
 
 // Intercalar: 
-m1.intercalar(n1.verificarPrimo) // <-- funcion integer
+m1.intercalar("esPrimo") // <-- funcion integer
 ```
