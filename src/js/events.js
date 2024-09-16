@@ -402,17 +402,28 @@ botones.botonReset.addEventListener('click', async () => {
   }
 })
 
-grabarButton.addEventListener('click', () => {
-  // const contenido = m1.matriz.map(fila => fila.join('\t').join('\n'))
+grabarButton.addEventListener('click', async () => {
+  const pickerOpts = {
+    types: [
+      {
+        description: 'Matriz',
+        accept: {
+          'text/plain': ['.txt']
+        }
+      }
+    ],
+    startIn: 'downloads'
+  }
   const blob = new Blob([m1.descargar()], { type: 'text/plain' })
-  const ancle = document.createElement('a')
-  ancle.download = 'matriz'
-  ancle.href = URL.createObjectURL(blob)
-
-  document.body.appendChild(ancle)
-  ancle.click()
-  URL.revokeObjectURL(ancle.href)
-  document.body.removeChild(ancle)
+  if (!window?.showSaveFilePicker) return
+  try {
+    const fileHandle = await window.showSaveFilePicker(pickerOpts)
+    const writable = await fileHandle.createWritable()
+    writable.write(blob)
+    writable.close()
+  } catch (e) {
+    console.log('[ [ ERROR ] ]')
+  }
 })
 
 leerButton.addEventListener('click', () => {
@@ -422,6 +433,7 @@ leerButton.addEventListener('click', () => {
   input.accept = '.txt'
 
   reader.onload = e => {
+    console.log(e.target.result)
     const numeros = e.target.result
       .trim()
       .split('\n')
@@ -429,11 +441,11 @@ leerButton.addEventListener('click', () => {
         linea
           .trim()
           .split('\t')
-          .map(numero => +numero.trim())
+          .map(numero => parseInt(numero.trim()))
       )
     m1.matriz = numeros
     m1.rowLength = numeros.length
-    m1.columnLength = numeros[0].length
+    m1.columnLength = m1.rowLength === 0 ? 0 : numeros[0].length
   }
 
   input.onchange = e => {
